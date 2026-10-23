@@ -1,0 +1,26 @@
+{
+  "name": "@nuskha/prescription-scanner",
+  "version": "1.0.0",
+  "description": "Modular Prescription Scanner for Nuskha AI (Stage 2 Hackathon Module)",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node tests/run-tests.js",
+    "start": "npx serve preview -l 3000",
+    "preview": "npx serve preview -l 3000"
+  },
+  "keywords": [
+    "nuskha-ai",
+    "prescription-scanner",
+    "ocr",
+    "tesseract",
+    "drug-interaction",
+    "medicine-matching",
+    "healthcare"
+  ],
+  "author": "Nuskha AI Team (Stage 2)",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "tesseract.js": "^5.1.0"
+  }
+}
