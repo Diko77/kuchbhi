@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuskha AI — Integrated Healthcare Assistant</title>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/generic-matcher.css" />
+  <link rel="stylesheet" href="css/scanner.css" />
+
+  <!-- Tesseract.js (Client-side WASM OCR) -->
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="nuskha-navbar">
+    <div class="nuskha-nav-container">
+      <a href="#overview" class="nuskha-brand">
+        <div class="nuskha-logo-icon">N</div>
+        <span class="nuskha-brand-text">Nuskha AI</span>
+        <span class="nuskha-brand-tag">Hackathon</span>
+      </a>
+
+      <nav class="nuskha-nav-menu">
+        <a class="nuskha-nav-link active" data-view="overview">
+          <span>🏠</span> Overview
+        </a>
+        <a class="nuskha-nav-link" data-view="generic-matcher">
+          <span>💊</span> Generic Matcher
+        </a>
+        <a class="nuskha-nav-link" data-view="prescription-scanner">
+          <span>📷</span> Prescription Scanner
+        </a>
+        <a class="nuskha-nav-link" data-view="dosage-assistant">
+          <span>🕒</span> Dosage Assistant
+        </a>
+        <a class="nuskha-nav-link" data-view="safety">
+          <span>🛡️</span> Medical Safety
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Application Canvas -->
+  <main class="nuskha-main-content">
+    
+    <!-- VIEW 1: OVERVIEW / DASHBOARD -->
+    <section id="view-overview" class="nuskha-view active-view">
+      <div class="nuskha-hero-banner">
+        <h1 class="nuskha-hero-title">Intelligent Prescription & Generic Medicine Support</h1>
+        <p class="nuskha-hero-subtitle">
+          Nuskha AI empowers patients and clinicians with optical prescription recognition, 
+          evidence-based generic medicine comparison, and clinical drug-drug interaction screening.
+        </p>
+        <div class="nuskha-hero-actions">
+          <button class="nuskha-hero-btn" id="hero-btn-matcher">
+            <span>💊</span> Open Generic Medicine Matcher (Stage 4)
+          </button>
+          <button class="nuskha-hero-btn nuskha-hero-btn-outline" id="hero-btn-scanner">
+            <span>📷</span> Open Prescription Scanner (Stage 2)
+          </button>
+        </div>
+      </div>
+
+      <!-- Module Feature Cards -->
+      <h2 style="font-size:20px; font-weight:800; color:#0f172a; margin-bottom:16px;">Core Healthcare Modules</h2>
+      
+      <div class="nuskha-modules-grid">
+        
+        <!-- Module 1: Generic Medicine Matcher (Stage 4) -->
+        <div class="nuskha-feature-card" style="border-top:4px solid #0284c7;">
+          <div class="feature-card-header">
+            <div class="feature-card-icon icon-blue">💊</div>
+            <span class="feature-status-badge status-active">Stage 4 Active</span>
+          </div>
+          <h3 class="feature-card-title">Generic Medicine Matcher</h3>
+          <p class="feature-card-desc">
+            Search branded prescriptions and inspect documented generic equivalents. 
+            Compares active ingredients, dosages, dosage forms, release mechanisms, and FDA Orange Book therapeutic equivalence ratings.
+          </p>
+          <button class="feature-card-btn" data-goto="generic-matcher">Launch Generic Matcher →</button>
+        </div>
+
+        <!-- Module 2: Prescription Scanner (Stage 2) -->
+        <div class="nuskha-feature-card" style="border-top:4px solid #0d9488;">
+          <div class="feature-card-header">
+            <div class="feature-card-icon icon-emerald">📷</div>
+            <span class="feature-status-badge status-active">Stage 2 Integrated</span>
+          </div>
+          <h3 class="feature-card-title">Prescription & Packaging Scanner</h3>
+          <p class="feature-card-desc">
+            Upload prescription images or medicine packaging. Performs genuine client-side OCR (Tesseract.js), 
+            extracts editable text, maps structured drug records, and screens for multi-drug interactions.
+          </p>
+          <button class="feature-card-btn" data-goto="prescription-scanner">Launch Prescription Scanner →</button>
+        </div>
+
+        <!-- Module 3: Visual Dosage Assistant (Stage 3) -->
+        <div class="nuskha-feature-card" style="border-top:4px solid #d97706;">
+          <div class="feature-card-header">
+            <div class="feature-card-icon icon-amber">🕒</div>
+            <span class="feature-status-badge status-stage">Stage 3 Integration</span>
+          </div>
+          <h3 class="feature-card-title">Visual Dosage Assistant</h3>
+          <p class="feature-card-desc">
+            Visualizes complex daily medication schedules, meal timings, and dosage intervals with patient-friendly 
+            chronological timelines and reminders.
+          </p>
+          <button class="feature-card-btn" data-goto="dosage-assistant">View Dosage Module →</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VIEW 2: GENERIC MEDICINE MATCHER (STAGE 4) -->
+    <section id="view-generic-matcher" class="nuskha-view">
+      <div id="generic-matcher-mount"></div>
+    </section>
+
+    <!-- VIEW 3: PRESCRIPTION SCANNER (STAGE 2) -->
+    <section id="view-prescription-scanner" class="nuskha-view">
+      <div id="prescription-scanner-mount"></div>
+    </section>
+
+    <!-- VIEW 4: VISUAL DOSAGE ASSISTANT (STAGE 3) -->
+    <section id="view-dosage-assistant" class="nuskha-view">
+      <div class="generic-matcher-wrapper">
+        <div class="matcher-header">
+          <span class="matcher-stage-badge">Stage 3 Module</span>
+          <h2 class="matcher-title">Visual Dosage Assistant</h2>
+          <p class="matcher-subtitle">Chronological medication timing, meal coordination, and intake visualization</p>
+        </div>
+
+        <div class="matcher-card" style="text-align:center; padding:48px 24px;">
+          <div style="font-size:48px; margin-bottom:12px;">🕒</div>
+          <h3 style="font-size:20px; font-weight:700; color:#0f172a; margin-bottom:8px;">Dosage Schedule Visualization Module</h3>
+          <p style="color:#64748b; max-width:600px; margin:0 auto 20px auto; font-size:14px; line-height:1.6;">
+            This module integrates structured prescriptions from Stage 2 and verified generics from Stage 4 into intuitive morning, afternoon, evening, and bedtime medication schedules.
+          </p>
+          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:16px; max-width:540px; margin:0 auto; text-align:left;">
+            <strong style="font-size:13px; color:#334155;">Integrated Data Flow:</strong>
+            <ul style="font-size:13px; color:#64748b; margin:8px 0 0 16px; padding:0;">
+              <li>Accepts identified drugs from <strong>Prescription Scanner (Stage 2)</strong></li>
+              <li>Links substitute formulations from <strong>Generic Matcher (Stage 4)</strong></li>
+              <li>Visualizes frequency (e.g. BID, TID, PRN) and food considerations (Before / After meals)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 5: MEDICAL SAFETY & PRIVACY -->
+    <section id="view-safety" class="nuskha-view">
+      <div class="generic-matcher-wrapper">
+        <div class="matcher-header">
+          <span class="matcher-stage-badge" style="background:#fef3c7; color:#92400e;">Clinical Governance</span>
+          <h2 class="matcher-title">Medical Safety, Clinical Governance & Privacy Policy</h2>
+          <p class="matcher-subtitle">Ethical AI principles, bioequivalence caveats, and strict data confidentiality</p>
+        </div>
+
+        <div class="matcher-card" style="line-height:1.6; font-size:14px; color:#334155;">
+          <h3 style="font-size:17px; font-weight:700; color:#0f172a; margin-top:0;">1. Informational Comparison Only (No Prescribing Advice)</h3>
+          <p>
+            Nuskha AI is developed strictly as a decision-support, screening, and educational tool for a hackathon. 
+            It is <strong>NOT</strong> an automated prescribing engine and does <strong>NOT</strong> give clinical advice to initiate, alter, or discontinue prescription medicines.
+          </p>
+
+          <h3 style="font-size:17px; font-weight:700; color:#0f172a;">2. Understanding Bioequivalence and Generic Substitution</h3>
+          <p>
+            An identical active molecule does not automatically mean that two products are interchangeable for an individual patient:
+          </p>
+          <ul>
+            <li><strong>Release Kinetics:</strong> Immediate-release formulations (e.g. Metformin IR) and Extended-release formulations (e.g. Glucophage XR) have entirely different pharmacokinetic profiles. Substituting between them without medical dosage adjustments can cause adverse effects.</li>
+            <li><strong>Narrow Therapeutic Index (NTI):</strong> Critical medications like Warfarin (Coumadin) have a narrow margin between safety and toxicity. Even approved generic substitutions require laboratory INR monitoring.</li>
+            <li><strong>Inactive Excipients:</strong> Binders, dyes, and coatings can differ across generic manufacturers, posing potential allergy risks.</li>
+          </ul>
+
+          <h3 style="font-size:17px; font-weight:700; color:#0f172a;">3. Honest Price Policy</h3>
+          <p>
+            Real-world pharmaceutical prices vary drastically depending on regional healthcare systems (e.g. NHS, Medicare, private co-pays, and manufacturer rebates). Nuskha AI never fabricates or estimates commercial pricing.
+          </p>
+
+          <h3 style="font-size:17px; font-weight:700; color:#0f172a;">4. Strict Patient Privacy</h3>
+          <p>
+            Prescription images and health data are processed strictly in client-side volatile memory. No images or patient details are persisted or uploaded to external tracking servers.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="nuskha-footer">
+    <div style="max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+      <div>
+        <strong>Nuskha AI</strong> — Stage 4 Generic Medicine Matcher & Integrated Healthcare Suite
+      </div>
+      <div style="font-size:12px; color:#94a3b8;">
+        Documented Sources: US FDA Orange Book, DailyMed, WHO Essential Medicines, BNF 86
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Scripts -->
+  <script src="js/data/medicines.js"></script>
+  <script src="js/data/interactions.js"></script>
+  <script src="js/core/genericMatcher.js"></script>
+  <script src="js/genericMatcherUI.js"></script>
+  <script src="js/prescriptionScannerUI.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

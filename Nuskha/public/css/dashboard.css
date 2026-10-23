@@ -1,0 +1,303 @@
+/**
+ * Nuskha AI - Unified Dashboard Stylesheet
+ */
+
+:root {
+  --nuskha-primary: #0284c7;
+  --nuskha-primary-hover: #0369a1;
+  --nuskha-primary-light: #e0f2fe;
+  --nuskha-secondary: #0d9488;
+  --nuskha-bg: #f8fafc;
+  --nuskha-card: #ffffff;
+  --nuskha-border: #e2e8f0;
+  --nuskha-text: #0f172a;
+  --nuskha-text-muted: #64748b;
+  --nuskha-radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--nuskha-bg);
+  color: var(--nuskha-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* App Header & Navigation */
+.nuskha-navbar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--nuskha-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.nuskha-nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nuskha-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--nuskha-text);
+}
+
+.nuskha-logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #0284c7, #0d9488);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 18px;
+  box-shadow: 0 2px 4px rgba(2, 132, 199, 0.25);
+}
+
+.nuskha-brand-text {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.nuskha-brand-tag {
+  background: #e0f2fe;
+  color: #0284c7;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.nuskha-nav-menu {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.nuskha-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.nuskha-nav-link:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.nuskha-nav-link.active {
+  background-color: #e0f2fe;
+  color: #0284c7;
+}
+
+/* Main Dashboard Canvas */
+.nuskha-main-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px;
+  min-height: calc(100vh - 140px);
+}
+
+/* Views */
+.nuskha-view {
+  display: none;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.nuskha-view.active-view {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Home / Overview View */
+.nuskha-hero-banner {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  border-radius: 16px;
+  padding: 40px 32px;
+  color: #ffffff;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nuskha-hero-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.5px;
+}
+
+.nuskha-hero-subtitle {
+  font-size: 16px;
+  color: #94a3b8;
+  max-width: 700px;
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+}
+
+.nuskha-hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.nuskha-hero-btn {
+  background-color: #0284c7;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.15s ease;
+}
+
+.nuskha-hero-btn:hover {
+  background-color: #0369a1;
+}
+
+.nuskha-hero-btn-outline {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nuskha-hero-btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Module Feature Cards Grid */
+.nuskha-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.nuskha-feature-card {
+  background: #ffffff;
+  border: 1px solid var(--nuskha-border);
+  border-radius: 14px;
+  padding: 24px;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.nuskha-feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.08);
+}
+
+.feature-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.feature-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.icon-blue { background: #e0f2fe; color: #0284c7; }
+.icon-emerald { background: #d1fae5; color: #059669; }
+.icon-amber { background: #fef3c7; color: #d97706; }
+
+.feature-status-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.status-active { background: #dcfce7; color: #166534; }
+.status-stage { background: #f1f5f9; color: #475569; }
+
+.feature-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #0f172a;
+}
+
+.feature-card-desc {
+  font-size: 13.5px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+  flex: 1;
+}
+
+.feature-card-btn {
+  background: transparent;
+  border: 1.5px solid var(--nuskha-border);
+  color: #0f172a;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.feature-card-btn:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+/* Footer */
+.nuskha-footer {
+  background: #ffffff;
+  border-top: 1px solid var(--nuskha-border);
+  padding: 20px 24px;
+  font-size: 13px;
+  color: #64748b;
+  text-align: center;
+}

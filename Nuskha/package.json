@@ -1,0 +1,24 @@
+{
+  "name": "nuskha-ai",
+  "version": "1.0.0",
+  "description": "Nuskha AI - Integrated Healthcare Assistant (Prescription Scanner & Generic Medicine Matcher)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node tests/run-tests.js"
+  },
+  "keywords": [
+    "nuskha-ai",
+    "generic-medicine-matcher",
+    "prescription-scanner",
+    "healthcare",
+    "bioequivalence"
+  ],
+  "author": "Nuskha AI Team",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "tesseract.js": "^5.1.0"
+  }
+}

@@ -1,0 +1,593 @@
+/**
+ * Nuskha AI - Stage 4 Generic Medicine Matcher Stylesheet
+ */
+
+.generic-matcher-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+/* Header */
+.matcher-header {
+  margin-bottom: 20px;
+}
+
+.matcher-stage-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: #e0f2fe;
+  color: #0284c7;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 9999px;
+  margin-bottom: 8px;
+}
+
+.matcher-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.matcher-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Medical Safety Banner */
+.matcher-safety-banner {
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  border-left: 5px solid #d97706;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 22px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.matcher-safety-icon {
+  font-size: 20px;
+  color: #d97706;
+  line-height: 1;
+}
+
+.matcher-safety-content h4 {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #92400e;
+}
+
+.matcher-safety-content p {
+  margin: 0;
+  font-size: 12.5px;
+  color: #78350f;
+  line-height: 1.5;
+}
+
+/* Cards */
+.matcher-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Search Card */
+.matcher-search-card {
+  padding: 20px;
+}
+
+.matcher-search-input-group {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 10px;
+}
+
+.matcher-input-prefix {
+  position: absolute;
+  left: 14px;
+  font-size: 16px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.matcher-search-input {
+  flex: 1;
+  padding: 12px 38px 12px 42px;
+  font-size: 15px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s ease;
+  color: #0f172a;
+}
+
+.matcher-search-input:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.matcher-btn-clear {
+  position: absolute;
+  right: 175px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.matcher-btn-clear:hover {
+  color: #475569;
+}
+
+.matcher-btn-primary {
+  background-color: #0284c7;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.matcher-btn-primary:hover {
+  background-color: #0369a1;
+}
+
+/* Quick Search Bar */
+.matcher-quick-search-bar {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.matcher-quick-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.matcher-quick-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.matcher-btn-preset {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.matcher-btn-preset:hover,
+.matcher-btn-preset.active {
+  background: #e0f2fe;
+  border-color: #0284c7;
+  color: #0284c7;
+}
+
+/* Results Header */
+.matcher-results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.matcher-results-count {
+  font-size: 15px;
+  color: #334155;
+}
+
+.matcher-criteria-tag {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+
+.matcher-stat-pills {
+  display: flex;
+  gap: 8px;
+}
+
+.matcher-stat-pill {
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 9999px;
+}
+
+.pill-verified {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.pill-caution {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* Comparison Layout */
+.matcher-comparison-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+@media (max-width: 960px) {
+  .matcher-comparison-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Brand Column */
+.matcher-brand-card {
+  border-top: 4px solid #0284c7;
+}
+
+.matcher-brand-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.matcher-column-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.matcher-rld-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  background: #e0f2fe;
+  color: #0369a1;
+  border-radius: 4px;
+}
+
+.matcher-brand-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+
+.matcher-brand-generic {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0284c7;
+  margin: 0 0 16px 0;
+}
+
+.matcher-spec-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 12px;
+}
+
+.matcher-spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.spec-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.spec-value {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.spec-source {
+  font-size: 12px;
+  font-style: italic;
+  color: #475569;
+}
+
+/* Price Card */
+.matcher-price-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.matcher-price-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.matcher-price-header h4 {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.matcher-price-text {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* Equivalents Column */
+.matcher-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 14px 0;
+}
+
+.matcher-equivalents-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Equivalent Card */
+.matcher-equivalent-card {
+  border-left: 5px solid #cbd5e1;
+  transition: all 0.15s ease;
+}
+
+.matcher-equivalent-card.card-verified {
+  border-left-color: #10b981;
+}
+
+.matcher-equivalent-card.card-caution {
+  border-left-color: #d97706;
+}
+
+.matcher-eq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.matcher-eq-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 2px 0;
+}
+
+.matcher-eq-manufacturer {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Badges */
+.matcher-badge {
+  display: inline-block;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.badge-equivalent {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.badge-caution {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.badge-mismatch {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* 3-Way Criteria Box */
+.matcher-criteria-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.criteria-row {
+  display: flex;
+  align-items: center;
+  font-size: 12.5px;
+  gap: 6px;
+}
+
+.crit-icon {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.crit-name {
+  font-weight: 700;
+  color: #475569;
+  min-width: 110px;
+}
+
+.crit-status {
+  color: #0f172a;
+}
+
+.crit-pass .crit-icon {
+  color: #10b981;
+}
+
+.crit-fail .crit-icon {
+  color: #d97706;
+}
+
+/* Meta & Notes */
+.matcher-eq-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.matcher-eq-meta code {
+  background: #f1f5f9;
+  padding: 2px 5px;
+  border-radius: 4px;
+  color: #0f172a;
+}
+
+.matcher-eq-notes {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  margin-bottom: 10px;
+}
+
+.notes-verified {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+.notes-caution {
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+}
+
+/* Price Bar */
+.matcher-eq-price-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #64748b;
+  border-top: 1px dashed #e2e8f0;
+  padding-top: 8px;
+}
+
+.matcher-price-pill {
+  background: #f1f5f9;
+  color: #334155;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Empty / Loading States */
+.matcher-empty-state,
+.matcher-loading-state {
+  text-align: center;
+  padding: 48px 20px;
+  color: #64748b;
+}
+
+.matcher-empty-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.matcher-not-found-card {
+  text-align: center;
+  padding: 36px 20px;
+}
+
+.matcher-not-found-icon {
+  font-size: 36px;
+  margin-bottom: 8px;
+  color: #94a3b8;
+}
+
+.matcher-catalog-note {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border-radius: 6px;
+  font-size: 12.5px;
+  color: #475569;
+  display: inline-block;
+  text-align: left;
+}
+
+.matcher-error-card {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-left: 4px solid #e11d48;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #991b1b;
+  margin-bottom: 16px;
+}
+
+.matcher-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #0284c7;
+  border-radius: 50%;
+  animation: matcher-spin 0.8s linear infinite;
+  margin: 0 auto 12px auto;
+}
+
+@keyframes matcher-spin {
+  to { transform: rotate(360deg); }
+}
